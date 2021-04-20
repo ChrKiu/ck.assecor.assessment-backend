@@ -1,5 +1,18 @@
 # Assecor Assessment Test (DE)
 
+#Einstellungen
+
+Die Verbindungen zu den Datenquellen wird in der appsettings.json gesetzt.
+Der Connectionstrings:PersonDb ist hier die Verbindung zu einer Datenbank.
+Die DataSources:PersonCsv:Location ist der Pfad zu der CSV-File
+Die DataSources:PersonCsv:Filename ist der Name der CSV-File
+
+Sollte keine Location angegeben sein, setzt das Program den Pfad auf dem die Applikation ausgeführt wird.
+
+Um zu entscheiden ob man CSV oder EF nimmt, gibt es die Einstellung:
+DataSoruces:ActiveDataSource mit den werten CSV oder EF.
+EF setzt hierbei die Verbindungen zur Datenbank
+CSV setzt die Verbindungen zum lesen von CSV-Files
 
 #Api Beschreibung
 
