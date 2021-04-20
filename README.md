@@ -1,5 +1,49 @@
 # Assecor Assessment Test (DE)
 
+
+#Api Beschreibung
+
+## Person Erstellen
+```
+POST /persons/
+Gibt Http 200 und die erstellte Person bei Erfolg zurück
+Gibt Http 400 zurück, wenn nicht alle Werte einer Person eingetragen sind (Ausnahme ist die ID)
+Gibt Http 500 bei sonstigen internen Fehler zurück
+
+Beispiel einst Post-Bodies:
+{
+    "Name": "Tony",
+    "Lastname": "Stark",
+    "Zipcode": "984",
+    "City": "Not",
+    "Color":"blau"
+}
+```
+
+## Person bei ID holen
+```
+GET /persons/{id}
+Gibt Http 200 und die gesuchte Person bei Erfolg zurück
+Gibt Http 400 zurück, wenn der ID-Wert nicht geparst werden kann
+Gibt Http 500 bei sonstigen internen Fehler zurück
+
+Die ID muss eine Zahl sein
+```
+
+## Alle Personen holen
+```
+GET /persons
+Gibt Http 200 und alle Personen bei Erfolg zurück
+Gibt Http 500 bei sonstigen internen Fehler zurück
+```
+
+## Bestimmte Personen über ihre Lieblingsfarbe holen
+```
+GET /persons/color/{color}
+Gibt Http 200 und alle Personen welche die Farbe als Lieblingsfarbe haben bei Erfolg zurück
+Gibt Http 500 bei sonstigen internen Fehler zurück
+```
+
 ## Zielsetzung
 
 Das Ziel ist es ein REST – Interface zu implementieren, Bei den möglichen Frameworks stehen .NET(C#) oder Java zur Auswahl. Dabei sind die folgenden Anforderungen zu erfüllen:
