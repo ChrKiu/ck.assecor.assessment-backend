@@ -14,7 +14,7 @@ DataSoruces:ActiveDataSource mit den werten CSV oder EF.
 EF setzt hierbei die Verbindungen zur Datenbank
 CSV setzt die Verbindungen zum lesen von CSV-Files
 
-## Api Beschreibung
+# Api Beschreibung
 
 ## Person Erstellen
 ```
@@ -38,6 +38,7 @@ Beispiel einst Post-Bodies:
 GET /persons/{id}
 Gibt Http 200 und die gesuchte Person bei Erfolg zurück
 Gibt Http 400 zurück, wenn der ID-Wert nicht geparst werden kann
+Gibt Http 404 zurück, wenn keine Person gefunden werden kann
 Gibt Http 500 bei sonstigen internen Fehler zurück
 
 Die ID muss eine Zahl sein
@@ -54,6 +55,7 @@ Gibt Http 500 bei sonstigen internen Fehler zurück
 ```
 GET /persons/color/{color}
 Gibt Http 200 und alle Personen welche die Farbe als Lieblingsfarbe haben bei Erfolg zurück
+Gibt Http 404 zurück, wenn keine Person mit dieser Lieblingsfarbe gefunden werden kann
 Gibt Http 500 bei sonstigen internen Fehler zurück
 ```
 

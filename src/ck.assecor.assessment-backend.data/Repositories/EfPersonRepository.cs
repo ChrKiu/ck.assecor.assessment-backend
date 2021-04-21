@@ -50,6 +50,11 @@ namespace ck.assecor.assessment_backend.data.Repositories
 
                 var personDbos = context.Persons.Where(mappedExpression);
 
+                if(!personDbos.Any())
+                {
+                    personDbos.ToList().Add(EfPersonDbo.GetNullValue());
+                }
+
                 return this.mapper.Map<IEnumerable<Person>>(personDbos);
             }
             catch (Exception e)

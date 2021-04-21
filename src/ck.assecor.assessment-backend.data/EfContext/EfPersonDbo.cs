@@ -13,5 +13,18 @@
         public string ZipCode { get; set; }
 
         public int Color { get; set; }
+
+        public static EfPersonDbo GetNullValue()
+        {
+            return new EfPersonDbo()
+            {
+                Id = 0,
+                Name = "",
+                LastName = "",
+                City = "",
+                ZipCode = "",
+                Color = 0
+            };
+        }
     }
 }

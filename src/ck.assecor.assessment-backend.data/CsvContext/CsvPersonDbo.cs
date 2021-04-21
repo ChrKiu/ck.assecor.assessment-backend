@@ -53,6 +53,18 @@ namespace ck.assecor.assessment_backend.data.CsvContext
             City = splitValues[1];
         }
 
+        public static CsvPersonDbo GetNullValue()
+        {
+            var dbo = new CsvPersonDbo();
+            dbo.Id = 0;
+            dbo.LastName = "";
+            dbo.Name = "";
+            dbo.SetCityAndZipCode("");
+            dbo.Color = "";
+
+            return dbo;
+        }
+
         public static bool TryToBuild(string lastname, string name, string zipAndCity, string color, long id, out CsvPersonDbo dbo)
         {
             dbo = new CsvPersonDbo();

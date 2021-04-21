@@ -82,6 +82,12 @@ namespace ck.assecor.assessment_backend.data.CsvContext
                 var restoredRecords = RestoreBadRecords();
                 var filteredRestoredRecords = restoredRecords.Where(p => predicate(p)).ToList();
                 results.AddRange(filteredRestoredRecords);
+
+                if(!results.Any())
+                {
+                    results.Add(CsvPersonDbo.GetNullValue());
+                }
+
                 return results;
 
             }

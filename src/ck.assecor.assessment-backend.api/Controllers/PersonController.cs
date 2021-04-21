@@ -46,6 +46,7 @@ namespace ck.assecor.assessment_backend.api.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(PersonDto), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public IActionResult GetPersonById(string id)
         {
@@ -55,6 +56,12 @@ namespace ck.assecor.assessment_backend.api.Controllers
             }
 
             var person = this.personService.GetPersonById(parsedId);
+
+            if(person.Id != parsedId)
+            {
+                return NotFound("Did not find a person with that ID");
+            }
+
             var personDto = person.MapToPersonDto();
             
             return Ok(personDto);
@@ -81,10 +88,20 @@ namespace ck.assecor.assessment_backend.api.Controllers
         [HttpGet("color/{color}")]
         [ProducesResponseType(typeof(PersonDto[]), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
         public IActionResult GetPersonsByColor(string color)
         {
             var persons = this.personService.GetPersonsBy(color);
+
+            
+
             var personDtos = persons.Select(p => p.MapToPersonDto());
+
+            if (personDtos.Count() == 1 &&
+                personDtos.First().Color != color)
+            {
+                return NotFound("Did not find a person with that color");
+            }
 
             return Ok(personDtos);
         }

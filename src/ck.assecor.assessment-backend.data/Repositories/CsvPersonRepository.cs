@@ -3,6 +3,7 @@ using ck.assecor.assessment_backend.data.CsvContext;
 using ck.assecor.assessment_backend.infrastructure.Models.Persons;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace ck.assecor.assessment_backend.data.Repositories
