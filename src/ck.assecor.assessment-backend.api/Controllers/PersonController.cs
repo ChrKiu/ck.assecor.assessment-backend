@@ -49,7 +49,7 @@ namespace ck.assecor.assessment_backend.api.Controllers
         [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public IActionResult GetPersonById(string id)
         {
-            if(long.TryParse(id, out long parsedId))
+            if(!long.TryParse(id, out long parsedId))
             {
                 return BadRequest();
             }

@@ -71,9 +71,9 @@ namespace ck.assecor.assessment_backend.data.CsvContext
                             SkipCurrentIndex = false;
                             continue;
                         }
+                        r.Id = csv.Context.Parser.RawRow;
                         if (predicate.Invoke(r))
                         {
-                            r.Id = csv.Context.Parser.RawRow;
                             results.Add(r);
                         }
                     }
